@@ -11,6 +11,8 @@ build/
 DerivedData
 Carthage/
 Packages/
+*.xcodeproj/
+Package.resolved
 
 ## Various settings
 *.pbxuser
