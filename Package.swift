@@ -1,8 +1,24 @@
+// swift-tools-version:4.0
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
 import PackageDescription
 
 let package = Package(
     name: "ZeroMQ",
+    products: [
+        .library(
+            name: "ZeroMQKit",
+            targets: ["ZeroMQKit"]
+        )
+    ],
     dependencies: [
-        .Package(url: "https://github.com/Zewo/CZeroMQ.git", majorVersion: 1, minor: 0),
+        .package(url: "https://github.com/unnamedd/CZeroMQ.git", .branch("master"))
+    ],
+    targets: [
+        .target(name: "ZeroMQKit"),
+        .testTarget(
+            name: "MainTests",
+            dependencies: ["ZeroMQKit"]
+        )
     ]
 )
