@@ -12,7 +12,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/unnamedd/CZeroMQ.git", from: "1.0.4")
+        .package(url: "https://github.com/evolution-app/CZeroMQ.git", from: "1.0.4")
     ],
     targets: [
         .target(name: "ZeroMQKit"),
