@@ -7,14 +7,29 @@ let package = Package(
     products: [
         .library(
             name: "ZeroMQKit",
-            targets: ["ZeroMQKit"]
+            targets: [
+                "ZeroMQKit"
+            ]
         )
     ],
-    dependencies: [
-        .package(url: "https://github.com/evolution-app/CZeroMQ.git", from: "1.0.4")
-    ],
     targets: [
-        .target(name: "ZeroMQKit"),
+        .target(
+            name: "ZeroMQKit",
+            dependencies: ["CZeroMQ"]
+        ),
+        .systemLibrary(
+            name: "CZeroMQ",
+            path: "Sources/CZeroMQ",
+            pkgConfig: "libzmq",
+            providers: [
+                .brew([
+                    "zmq"
+                ]),
+                .apt([
+                    "libzmq3-dev"
+                ])
+            ]
+        ),
         .testTarget(
             name: "MainTests",
             dependencies: ["ZeroMQKit"]

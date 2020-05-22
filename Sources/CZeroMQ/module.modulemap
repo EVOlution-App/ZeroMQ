@@ -1,0 +1,5 @@
+module CZeroMQ [system] {
+    header "./zmqinclude.h"
+    link "zmq"
+    export *
+}
